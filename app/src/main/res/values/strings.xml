@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CoffeeTime-Admin</string>
+    <string name="btn_save">Guardar</string>
+    <string name="btn_search">Buscar</string>
+    <string name="btn_modify">Modificar</string>
+    <string name="btn_delete">Eliminar</string>
+    <string name="txt_id">Codigo</string>
+    <string name="txt_price">Precio del producto</string>
+    <string name="txt_name">Nombre producto</string>
+
+    <string name="txt_login">Ingrese su email</string>
+    <string name="txt_password">Ingrese una contraseña</string>
+    <string name="btn_register">Registrar usuario</string>
+    <string name="btn_login">Ingresar</string>
+</resources>
