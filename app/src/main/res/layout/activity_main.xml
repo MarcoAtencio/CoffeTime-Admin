@@ -20,13 +20,22 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/txt_uid"
+        android:id="@+id/txt_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="@string/txt_id"
-        android:inputType="numberSigned" />
+        android:hint="Categoria"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/txt_stock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Stock"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/txt_price"
@@ -38,35 +47,11 @@
         android:inputType="numberDecimal" />
 
     <Button
-        android:id="@+id/btn_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:onClick="findProduct"
-        android:text="@string/btn_search" />
-
-    <Button
         android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:onClick="saveProduct"
         android:text="@string/btn_save" />
-
-    <Button
-        android:id="@+id/btn_modify"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:onClick="modifyProduct"
-        android:text="@string/btn_modify" />
-
-    <Button
-        android:id="@+id/btn_delete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:onClick="deleteProduct"
-        android:text="@string/btn_delete" />
 
 </LinearLayout>
