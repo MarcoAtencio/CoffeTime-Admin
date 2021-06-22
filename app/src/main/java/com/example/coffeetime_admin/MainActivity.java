@@ -5,34 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.coffeetime_admin.auth.LoginUserActivity;
 import com.example.coffeetime_admin.model.Product;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText et_name, et_price, et_stock, et_category, et_photo_uri;
+    EditText et_name, et_price, et_stock, et_category, et_photo_url;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -45,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         et_name = (EditText) findViewById(R.id.txt_name);
         et_stock = (EditText) findViewById(R.id.txt_stock);
         et_category = (EditText) findViewById(R.id.txt_category);
-        et_price = (EditText) findViewById(R.id.txt_price);
-        et_photo_uri = (EditText) findViewById(R.id.txt_photo_uri);
+        et_price = (EditText) findViewById(R.id.txt_precio);
+        et_photo_url = (EditText) findViewById(R.id.txt_photo_url);
         initFirebase();
 
     }
@@ -92,16 +82,14 @@ public class MainActivity extends AppCompatActivity {
             String price =  et_price.getText().toString();
             String stock = et_stock.getText().toString();
             String category = et_category.getText().toString();
-
-            String photoUri = et_photo_uri.getText().toString();
+            String photoUrl = et_photo_url.getText().toString();
 
             Product product = new Product();
             product.setUid(uid);
             product.setName(name);
             product.setPrice(price);
             product.setStock(stock);
-
-            product.setPhotoURI(photoUri);
+            product.setPhotoURl(photoUrl);
 
             product.setCategory(category);
             databaseReference.child("Product").child(product.getUid()).setValue(product);
@@ -175,5 +163,6 @@ public class MainActivity extends AppCompatActivity {
         et_price.setText("");
         et_category.setText("");
         et_stock.setText("");
+        et_photo_url.setText("");
     }
 }

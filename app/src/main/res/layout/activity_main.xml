@@ -27,18 +27,6 @@
         android:ems="10"
         android:hint="Categoria"
         android:inputType="number" />
-<<<<<<< HEAD
-
-    <EditText
-        android:id="@+id/txt_stock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="Stock"
-        android:inputType="number" />
-=======
->>>>>>> main
 
     <EditText
         android:id="@+id/txt_stock"
@@ -50,22 +38,22 @@
         android:inputType="number" />
 
     <EditText
-<<<<<<< HEAD
-        android:id="@+id/txt_photo_uri"
-=======
-        android:id="@+id/txt_price"
->>>>>>> main
+        android:id="@+id/txt_precio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:ems="10"
-<<<<<<< HEAD
-        android:hint="uri"
-        android:inputType="text" />
-=======
-        android:hint="@string/txt_price"
+        android:hint="Precio"
         android:inputType="numberDecimal" />
->>>>>>> main
+
+    <EditText
+        android:id="@+id/txt_photo_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Url"
+        android:inputType="text" />
 
     <Button
         android:id="@+id/btn_save"

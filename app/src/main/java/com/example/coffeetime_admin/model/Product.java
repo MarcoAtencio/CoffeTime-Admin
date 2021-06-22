@@ -6,7 +6,7 @@ public class Product {
     String price;
     String name;
     String category;
-    String photoURI;
+    String photoURl;
     String stock;
 
     public Product() {
@@ -14,16 +14,16 @@ public class Product {
         this.price = "0.0";
         this.name = "";
         this.category = "1";
-        this.photoURI = "2";
+        this.photoURl = "2";
         this.stock = "";
     }
 
-    public Product(String uid, String price, String name, String category, String photoURI, String stock) {
+    public Product(String uid, String price, String name, String category, String photoURl, String stock) {
         this.uid = uid;
         this.price = price;
         this.name = name;
         this.category = category;
-        this.photoURI = photoURI;
+        this.photoURl = photoURl;
         this.stock = stock;
     }
 
@@ -60,11 +60,11 @@ public class Product {
     }
 
     public String getPhotoURI() {
-        return photoURI;
+        return photoURl;
     }
 
-    public void setPhotoURI(String photoURI) {
-        this.photoURI = photoURI;
+    public void setPhotoURl(String photoURl) {
+        this.photoURl = photoURl;
     }
 
     public String getStock() {
