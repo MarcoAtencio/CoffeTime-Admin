@@ -28,10 +28,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText et_uid, et_name, et_price;
+    EditText et_name, et_price, et_stock, et_category;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
@@ -40,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        et_uid = (EditText) findViewById(R.id.txt_uid);
         et_name = (EditText) findViewById(R.id.txt_name);
+        et_stock = (EditText) findViewById(R.id.txt_stock);
+        et_category = (EditText) findViewById(R.id.txt_category);
         et_price = (EditText) findViewById(R.id.txt_price);
         initFirebase();
 
@@ -63,10 +65,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_list:
                 Intent intent = new Intent(this,MainActivity2.class);
                 startActivity(intent);
+                break;
 
             case R.id.menu_logout:
                 Intent intent2 = new Intent(this, LoginUserActivity.class);
                 startActivity(intent2);
+                break;
         }
         return  super.onOptionsItemSelected(item);
     }
@@ -81,13 +85,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void saveProduct(View view){
         if (fieldValidate() == 1){
-            String uid = et_uid.getText().toString();
+            String uid = UUID.randomUUID().toString();
             String name = et_name.getText().toString();
-            String price = et_price.getText().toString();
+            String price =  et_price.getText().toString();
+            String stock = et_stock.getText().toString();
+            String category = et_category.getText().toString();
             Product product = new Product();
             product.setUid(uid);
             product.setName(name);
             product.setPrice(price);
+            product.setStock(stock);
+            product.setCategory(category);
             databaseReference.child("Product").child(product.getUid()).setValue(product);
             Toast.makeText(this,"Se registro exitosamente",Toast.LENGTH_SHORT).show();
             fieldReset();
@@ -95,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void findProduct(View view){
+        /*
         String uid = et_uid.getText().toString();
         Product product = new Product();
         product.setUid(uid);
@@ -114,9 +123,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+         */
     }
 
     public void modifyProduct(View view){
+        /*
         String uid = et_uid.getText().toString();
         String name = et_name.getText().toString();
         String price = et_price.getText().toString();
@@ -127,23 +138,24 @@ public class MainActivity extends AppCompatActivity {
         databaseReference.child("Product").child(product.getUid()).setValue(product);
         Toast.makeText(this,"Se registro exitosamente",Toast.LENGTH_SHORT).show();
         fieldReset();
+         */
     }
 
     public void deleteProduct(View view){
+        /*
         String uid = et_uid.getText().toString();
         Product product = new Product();
         product.setUid(uid);
         databaseReference.child("Product").child(product.getUid()).removeValue();
         Toast.makeText(this,"Se elimino exitosamente",Toast.LENGTH_SHORT).show();
-        fieldReset();
+        fieldReset();*/
     }
 
     public int fieldValidate(){
-        String uid = et_uid.getText().toString();
         String name = et_name.getText().toString();
         String price = et_price.getText().toString();
 
-        if (uid.isEmpty() && name.isEmpty() && price.isEmpty()){
+        if ( name.isEmpty() && price.isEmpty()){
             Toast.makeText(this,"Llene los campos",Toast.LENGTH_SHORT).show();
             return 0;
         }
@@ -151,8 +163,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void fieldReset(){
-        et_uid.setText("");
         et_name.setText("");
         et_price.setText("");
+        et_category.setText("");
+        et_stock.setText("");
     }
 }

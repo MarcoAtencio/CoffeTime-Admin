@@ -19,9 +19,11 @@
         android:text="Lista de productos"
         android:textSize="24sp" />
 
-    <ListView
-        android:id="@+id/list_product"
+    <ImageView
+        android:id="@+id/am_iv_imagen"
         android:layout_width="match_parent"
-        android:layout_height="321dp"
-        android:layout_weight="1" />
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
 </LinearLayout>
