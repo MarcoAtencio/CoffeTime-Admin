@@ -32,7 +32,7 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText et_name, et_price, et_stock, et_category;
+    EditText et_name, et_price, et_stock, et_category, et_photo_uri;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         et_stock = (EditText) findViewById(R.id.txt_stock);
         et_category = (EditText) findViewById(R.id.txt_category);
         et_price = (EditText) findViewById(R.id.txt_price);
+        et_photo_uri = (EditText) findViewById(R.id.txt_photo_uri);
         initFirebase();
 
     }
@@ -90,11 +91,13 @@ public class MainActivity extends AppCompatActivity {
             String price =  et_price.getText().toString();
             String stock = et_stock.getText().toString();
             String category = et_category.getText().toString();
+            String photoUri = et_photo_uri.getText().toString();
             Product product = new Product();
             product.setUid(uid);
             product.setName(name);
             product.setPrice(price);
             product.setStock(stock);
+            product.setPhotoURI(photoUri);
             product.setCategory(category);
             databaseReference.child("Product").child(product.getUid()).setValue(product);
             Toast.makeText(this,"Se registro exitosamente",Toast.LENGTH_SHORT).show();
