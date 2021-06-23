@@ -2,18 +2,24 @@ package com.example.coffeetime_admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.coffeetime_admin.auth.LoginUserActivity;
+import com.example.coffeetime_admin.model.ListAdapter;
 import com.example.coffeetime_admin.model.Product;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -33,20 +39,26 @@ public class MainActivity2 extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     String url = "https://static.india.com/wp-content/uploads/2018/09/42-4.jpg";
-    ImageView imageView;
+    View view;
 
+/*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         initFirebase();
-        imageView = findViewById(R.id.am_iv_imagen);
-        Picasso.get()
-                .load(url)
-
-                .into(imageView);
         listProduct();
-    }
+    }*/
+
+public View onCreateView(@NonNull LayoutInflater inflater,
+                         ViewGroup container, Bundle savedInstanceState) {
+
+    view = inflater.inflate(R.layout.activity_main2, container, false);
+    initFirebase();
+    listProduct();
+    return view;
+}
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -89,14 +101,17 @@ public class MainActivity2 extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Product product = dataSnapshot.getValue(Product.class);
                     listProduct.add(product);
-                    arrayAdapterProduct = new ArrayAdapter<Product>(MainActivity2.this,android.R.layout.simple_list_item_1,listProduct);
-
                 }
+                ListAdapter listAdapter = new ListAdapter(listProduct,MainActivity2.this);
+                RecyclerView recyclerView = view.findViewById(R.id.listProduct);
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity2.this));
+                recyclerView.setAdapter(listAdapter);
             }
 
             @Override
             public void onCancelled(@NonNull @org.jetbrains.annotations.NotNull DatabaseError error) {
-                Toast.makeText(MainActivity2.this,"Paso algo Lista",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity2.this,"Aviso De Error",Toast.LENGTH_SHORT).show();
             }
         });
     }

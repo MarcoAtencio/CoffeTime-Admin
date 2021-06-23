@@ -15,15 +15,13 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:textAlignment="center"
+        android:fontFamily="@font/grotesk_medium"
         android:text="Lista de productos"
-        android:textSize="24sp" />
-
-    <ImageView
-        android:id="@+id/am_iv_imagen"
+        android:textSize="30sp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listProduct"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

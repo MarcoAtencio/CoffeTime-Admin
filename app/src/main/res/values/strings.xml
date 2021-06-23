@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CoffeeTime-Admin</string>
+    <string name="app_name">CofeeTime Admin</string>
     <string name="btn_save">Guardar</string>
     <string name="btn_search">Buscar</string>
     <string name="btn_modify">Modificar</string>

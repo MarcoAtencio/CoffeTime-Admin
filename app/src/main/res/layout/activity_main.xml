@@ -5,10 +5,21 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:padding="30dp"
+    android:paddingTop="20dp"
+    android:paddingRight="30dp"
+    android:paddingLeft="30dp"
     tools:context=".MainActivity"
     tools:menu="@menu/main_menu">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:padding="15dp"
+        android:text="Registrar Producto"
+        android:textAlignment="center"
+        android:fontFamily="@font/grotesk_medium"
 
+        />
 
     <EditText
         android:id="@+id/txt_name"
@@ -59,8 +70,13 @@
         android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#FCB302"
         android:onClick="saveProduct"
-        android:text="@string/btn_save" />
-
+        android:text="@string/btn_save"
+        android:padding="10dp"
+        android:textColor="#0C1423"
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        app:cornerRadius="20dp" />
 </LinearLayout>

@@ -10,11 +10,23 @@
     tools:menu="@menu/auth_menu"
     >
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesión"
+        android:padding="15dp"
+        android:fontFamily="@font/grotesk_medium"
+        android:textAlignment="center"
+        android:textSize="30dp"
+
+        />
+
     <EditText
         android:id="@+id/text_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_marginTop="50dp"
         android:hint="@string/txt_login"
         android:inputType="textWebEmailAddress" />
 
@@ -33,6 +45,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:onClick="registerUser"
+        android:textColor="#0C1423"
+        android:textAllCaps="false"
+        android:backgroundTint="#FCB302"
+        android:padding="10dp"
+        android:textSize="16dp"
+        app:cornerRadius="20dp"
         android:text="@string/btn_login" />
 
 </LinearLayout>

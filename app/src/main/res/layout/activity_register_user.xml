@@ -5,10 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".auth.RegisterUserActivity"
-    android:layout_margin="40dp"
+    android:paddingTop="30dp"
+    android:paddingRight="50dp"
+    android:paddingLeft="50dp"
     android:orientation="vertical"
     tools:menu="@menu/auth_menu"
     >
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registro de Usuario"
+        android:textSize="30dp"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/grotesk_medium"
+
+        />
 
     <EditText
         android:id="@+id/text_login"
@@ -16,6 +30,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/txt_login"
+        android:layout_marginTop="50dp"
         android:inputType="textWebEmailAddress" />
 
     <EditText
@@ -32,6 +47,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        android:backgroundTint="#FCB302"
         android:onClick="registerUser"
-        android:text="@string/btn_register" />
+        android:text="Registrar"
+        android:padding="13dp"
+        android:textColor="#0C1423"
+        app:cornerRadius="20dp"
+        />
 </LinearLayout>
